@@ -1,15 +1,16 @@
 'use client';
 import { loginSchema } from '@/lib/schemas/userSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { LockOutlined } from '@mui/icons-material';
-import { Box, Card, CardContent, Container, TextField, Typography } from '@mui/material';
-import React, { FC, useActionState, useState } from 'react';
+import { Label, LockOutlined } from '@mui/icons-material';
+import { Box, Card, CardContent, Container, Input, Typography } from '@mui/material';
+import React, { FC, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import Actions from '@actions';
+import Form from '@/components/shared/form';
+import FormError from '@/components/shared/formError';
+import SubmitButtonWithLoading from '@/components/shared/submitButtonWithLoading';
 
 const AdminLogin: FC = () => {
-  const [isLoading] = useState<boolean>(false);
-
   const [actionResponse, signInOrRegister] = useActionState(Actions.signInOrRegister, {success: false});
 
 
@@ -41,49 +42,42 @@ const AdminLogin: FC = () => {
                 Admin Login
               </Typography>
             </Box>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='email'
-                label='Email Address'
-                name='email'
-                autoComplete='email'
-                autoFocus
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                name='password'
-                label='Password'
-                type={showPassword ? 'text' : 'password'}
-                id='password'
-                autoComplete='current-password'
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <IconButton
-                        aria-label='toggle password visibility'
-                        onClick={() => setShowPassword(!showPassword)}
-                        edge='end'
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
-                Sign In
-              </Button>
-              <Box sx={{ textAlign: 'center' }}>
-                <Link href='#' variant='body2'>
-                  Forgot password?
-                </Link>
-              </Box>
-            </form>
+            <Form hookForm={form} action={signInOrRegister} actionResult={actionResponse}>
+              <div className="grid gap-4">
+                <div className="grid gap-1">
+                  <Label className="sr-only">
+                    Email
+                  </Label>
+                  <Input
+                    {...form.register('email')}
+                    placeholder="Email"
+                    role="textbox"
+                    className="rounded"
+                    defaultValue={actionResponse?.submittedData?.email ?? ''
+                    }
+                  />
+                  <FormError path="email" formErrors={form.formState.errors} serverErrors={actionResponse} />
+                </div>
+                <div className="grid gap-1">
+                  <Label>Password</Label>
+                  <Input
+                    {...form.register('password')}
+                    placeholder="Password"
+                    className="rounded"
+                    role="textbox"
+                    type="password"
+                    defaultValue={actionResponse?.submittedData?.password ?? ''}
+                  />
+                  <FormError path="password" formErrors={form.formState.errors} serverErrors={actionResponse} />
+                </div>
+                <SubmitButtonWithLoading
+                  className="mt-4 bg-red-500 rounded hover:bg-red-600"
+                  loadingText="Logging in ..."
+                  text="Log in"
+                  role="button"
+                />
+              </div>
+            </Form>
           </CardContent>
         </Card>
         <Box sx={{ mt: 3, textAlign: 'center' }}>

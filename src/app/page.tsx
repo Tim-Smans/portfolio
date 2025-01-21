@@ -8,6 +8,7 @@ import SkillsSection from '@/components/home/skillsSection';
 import ProjectsSection from '@/components/home/projectsSection';
 
 const Home: FC = () => {
+
   return (
     <>
       <HeroSection/>

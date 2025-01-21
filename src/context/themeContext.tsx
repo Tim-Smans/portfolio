@@ -17,6 +17,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({children}) => {
 
   const changeTheme = (newTheme: 'light' | 'dark') => {
     setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
   return (

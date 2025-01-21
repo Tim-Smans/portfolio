@@ -4,20 +4,21 @@ import type { Metadata } from 'next';
 import React from 'react';
 import { ThemeProvider } from '@/context/themeContext';
 import { CssBaseline, GlobalStyles } from '@mui/material';
-
+import Actions from '@actions';
 export const metadata: Metadata = {
   title: 'Portfolio of Tim Smans',
   description:
     'This is a portfolio created by Tim Smans, he is a belgian programmer who focuses on both front- and back-end',
 };
 
-const RootLayout = ({
+const RootLayout = async ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
+  const admin = await Actions.isAdmin();
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>          
         <ThemeProvider >
           <ClientThemeProvider>
@@ -29,7 +30,7 @@ const RootLayout = ({
                 },
               }}
             />
-            <Navbar />
+            <Navbar isAdmin={admin}/>
             {children}
           </ClientThemeProvider>
         </ThemeProvider>

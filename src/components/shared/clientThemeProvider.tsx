@@ -2,7 +2,7 @@
 
 import { useTheme } from '@/context/themeContext';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 const ClientThemeProvider = ({
@@ -10,7 +10,15 @@ const ClientThemeProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const {theme: mode} = useTheme();
+  const {theme: mode, changeTheme} = useTheme();
+  
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme !== null) {
+      changeTheme(storedTheme as 'light' | 'dark');
+    }
+  }, [changeTheme]);
+
 
   const theme = createTheme({
     palette: {
