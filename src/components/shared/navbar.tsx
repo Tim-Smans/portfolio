@@ -7,6 +7,7 @@ interface Props{
   isAdmin?: boolean
 }
 
+
 const Navbar: FC<Props> = ({isAdmin}) => {
   const { changeTheme, theme } = useTheme();
   return (

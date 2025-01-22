@@ -1,13 +1,12 @@
 'use client';
 import { loginSchema } from '@/lib/schemas/userSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Label, LockOutlined } from '@mui/icons-material';
-import { Box, Card, CardContent, Container, Input, Typography } from '@mui/material';
+import { LockOutlined } from '@mui/icons-material';
+import { Box, Card, CardContent, Container, TextField, Typography } from '@mui/material';
 import React, { FC, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import Actions from '@actions';
 import Form from '@/components/shared/form';
-import FormError from '@/components/shared/formError';
 import SubmitButtonWithLoading from '@/components/shared/submitButtonWithLoading';
 
 const AdminLogin: FC = () => {
@@ -43,46 +42,45 @@ const AdminLogin: FC = () => {
               </Typography>
             </Box>
             <Form hookForm={form} action={signInOrRegister} actionResult={actionResponse}>
-              <div className="grid gap-4">
-                <div className="grid gap-1">
-                  <Label className="sr-only">
-                    Email
-                  </Label>
-                  <Input
-                    {...form.register('email')}
-                    placeholder="Email"
-                    role="textbox"
-                    className="rounded"
-                    defaultValue={actionResponse?.submittedData?.email ?? ''
-                    }
-                  />
-                  <FormError path="email" formErrors={form.formState.errors} serverErrors={actionResponse} />
-                </div>
-                <div className="grid gap-1">
-                  <Label>Password</Label>
-                  <Input
-                    {...form.register('password')}
-                    placeholder="Password"
-                    className="rounded"
-                    role="textbox"
-                    type="password"
-                    defaultValue={actionResponse?.submittedData?.password ?? ''}
-                  />
-                  <FormError path="password" formErrors={form.formState.errors} serverErrors={actionResponse} />
-                </div>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <TextField
+                  {...form.register('email')}
+                  placeholder="Email"
+                  label="Email"
+                  fullWidth
+                  variant="outlined"
+                  error={!!form.formState.errors.email || !!actionResponse?.errors?.email}
+                  defaultValue={actionResponse?.submittedData?.email ?? ''}
+                  helperText={
+                    form.formState.errors.email?.message || actionResponse?.errors?.email?.[0]
+                  }
+                />
+                <TextField
+                  {...form.register('password')}
+                  placeholder="Password"
+                  label="Password"
+                  type="password"
+                  fullWidth
+                  variant="outlined"
+                  error={!!form.formState.errors.password || !!actionResponse?.errors?.password}
+                  defaultValue={actionResponse?.submittedData?.password ?? ''}
+                  helperText={
+                    form.formState.errors.password?.message || actionResponse?.errors?.password?.[0]
+                  }
+                />
                 <SubmitButtonWithLoading
                   className="mt-4 bg-red-500 rounded hover:bg-red-600"
                   loadingText="Logging in ..."
                   text="Log in"
                   role="button"
                 />
-              </div>
+              </Box>
             </Form>
           </CardContent>
         </Card>
         <Box sx={{ mt: 3, textAlign: 'center' }}>
           <Typography variant='body2' color='text.secondary'>
-            © {new Date().getFullYear()} Your Company Name. All rights reserved.
+            © {new Date().getFullYear()} Tim Smans. All rights reserved.
           </Typography>
         </Box>
       </Container>

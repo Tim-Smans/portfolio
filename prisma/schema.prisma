@@ -14,12 +14,13 @@ datasource db {
 }
 
 model Project {
-  id          String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name        String  @db.VarChar(255)
-  imageUrl    String? @default("https://via.assets.so/img.jpg?w=200&h=200&tc=black&bg=#cecece") @db.VarChar(255)
-  description String @db.VarChar(255)
-  avatar      String? @db.VarChar(255)
-  tags        Tag[]
+  id               String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name             String  @db.VarChar(255)
+  coverImageUrl    String? @default("https://via.assets.so/img.jpg?w=200&h=150&tc=white&bg=#cecece") @db.VarChar(255)
+  shortDescription String @db.VarChar(255)
+  description      String @db.VarChar(1000)
+  tags             Tag[]
+  images           Image[]
 }
 
 model Tag {
@@ -27,6 +28,14 @@ model Tag {
     name      String  @db.VarChar(20)
     color     String? @db.VarChar(30) @default("")
     projects  Project[]
+}
+
+model Image {
+    id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    url       String  @db.VarChar(300)
+    alt       String  @db.VarChar(300)
+    projectId String  @db.Uuid
+    project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
 
 model User {

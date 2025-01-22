@@ -21,7 +21,7 @@ const FormError: FunctionComponent<FormErrorProps> = ({path, formErrors, serverE
   const serverError = Array.from(new Set(serverErrors.errors?.[path.split('.')[0]]));
 
   return (
-    <p role={role} className="text-red-600">
+    <p role={role} style={{color: 'red'}}>
       {formError?.message ??
         serverError?.map(x => (
           <span className="block" key={x}>

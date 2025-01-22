@@ -1,13 +1,23 @@
-import { Box, Card, CardContent, Container, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Container, Typography } from '@mui/material';
 import React, { FC } from 'react';
 
+interface Props{
+  isAdmin: boolean
+}
 
-const SkillsSection: FC = () => {
+const SkillsSection: FC<Props> = ({isAdmin}) => {
   return (
     <Container sx={{ mb: 15 }}>
       <Typography variant="h4" align="center" gutterBottom>
         My Skills
       </Typography>
+      {
+        isAdmin && (
+          <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+            <Button variant='contained'>Add skill</Button>
+          </Box>
+        )
+      }
       <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 4, mt: 4 }}>
         {[
           { title: 'React', subtitle: 'Frontend Development' },

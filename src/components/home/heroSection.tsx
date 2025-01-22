@@ -34,7 +34,6 @@ const HeroSection: FC = () => {
         <Box sx={{ flex: 1 }}>
           <Box
             component="img"
-            src="/placeholder.svg?height=400&width=400"
             alt="Workspace illustration"
             sx={{
               width: '100%',

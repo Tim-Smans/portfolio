@@ -1,5 +1,6 @@
 
 import * as users from './users';
+import * as projects from './projects';
 
 /**
  * Om het aantal import statements te beperken en de code overzichtelijk te houden, groeperen we alle dal functies in
@@ -9,6 +10,7 @@ import * as users from './users';
  * Let op, hiervoor moet de '@dal' alias wel correct geconfigureerd zijn in tsconfig.json.
  */
 export * from './users';
+export * from './projects';
 
 /**
  * We voorzien hier een default export met alle actions in de volledige applicatie.
@@ -18,4 +20,5 @@ export * from './users';
  */
 export default {
   ...users,
+  ...projects,
 };

@@ -11,12 +11,13 @@ export const metadata: Metadata = {
     'This is a portfolio created by Tim Smans, he is a belgian programmer who focuses on both front- and back-end',
 };
 
+
 const RootLayout = async ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const admin = await Actions.isAdmin();
+  const admin = await Actions.isAdmin(); // Haal de admin-status server-side op
   return (
     <html lang='en'>
       <body>          
@@ -30,7 +31,7 @@ const RootLayout = async ({
                 },
               }}
             />
-            <Navbar isAdmin={admin}/>
+            <Navbar isAdmin={admin} />
             {children}
           </ClientThemeProvider>
         </ThemeProvider>

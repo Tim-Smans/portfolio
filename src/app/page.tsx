@@ -6,14 +6,18 @@ import '@fontsource/roboto/700.css';
 import HeroSection from '@/components/home/heroSection';
 import SkillsSection from '@/components/home/skillsSection';
 import ProjectsSection from '@/components/home/projectsSection';
+import { fetchProjects, isAdmin } from '@/lib/server/actions';
 
-const Home: FC = () => {
+const Home: FC = async () => {
+
+  const admin = await isAdmin();
+  const projects = await fetchProjects();
 
   return (
     <>
       <HeroSection/>
-      <SkillsSection/>
-      <ProjectsSection/>
+      <SkillsSection isAdmin={admin}/>
+      <ProjectsSection isAdmin={admin} projects={projects}/>
     </>
   );
 };
