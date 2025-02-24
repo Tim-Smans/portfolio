@@ -10,7 +10,11 @@ import SubmitButtonWithLoading from '@/components/shared/submitButtonWithLoading
 import { createTagSchema } from '@/lib/schemas/tagSchema';
 
 
-const TagForm: FC = () => {
+interface Props{
+  projectId: string
+}
+
+const TagForm: FC<Props> = ({projectId}) => {
   const [actionResponse, executeAction] = useActionState(Actions.createTag, {success: false});
 
 
@@ -18,6 +22,8 @@ const TagForm: FC = () => {
     resolver: zodResolver(createTagSchema),
     defaultValues: {
       name: '',
+      projectId: projectId,
+      color: '#000000',
     },
   });
 
@@ -55,6 +61,23 @@ const TagForm: FC = () => {
                     form.formState.errors.name?.message || actionResponse?.errors?.name?.[0]
                   }
                 />
+                <TextField
+                  {...form.register('projectId')}
+                  label="projectId"
+                  fullWidth
+                  variant="outlined"
+                  error={!!form.formState.errors.projectId || !!actionResponse?.errors?.projectId}
+                  defaultValue={actionResponse?.submittedData?.projectId ?? ''}
+                  helperText={
+                    form.formState.errors.projectId?.message || actionResponse?.errors?.projectId?.[0]
+                  }
+                />
+                <input
+                  type='color'
+                  {...form.register('color')}
+                  placeholder="Color"
+                  defaultValue={actionResponse?.submittedData?.color ?? ''}
+                />
                 <SubmitButtonWithLoading
                   className="mt-4 bg-red-500 rounded hover:bg-red-600"
                   loadingText="Logging in ..."
@@ -62,6 +85,7 @@ const TagForm: FC = () => {
                   role="button"
                 />
               </Box>
+              
             </Form>
           </CardContent>
         </Card>
@@ -71,6 +95,7 @@ const TagForm: FC = () => {
           </Typography>
         </Box>
       </Container>
+
     </Box>
   );
 };

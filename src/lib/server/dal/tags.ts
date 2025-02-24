@@ -1,5 +1,6 @@
 import { Prisma, Tag } from '@prisma/client';
 import { prismaClient } from './utils/prismaClient';
+import { log } from 'console';
 
 
 export const getTags = async (): Promise<Tag[]> => {
@@ -10,8 +11,21 @@ export const getTagById = async (id: string): Promise<Tag | null> => {
   return await prismaClient.tag.findUnique({where: {id}});
 };
 
-export const createTag = async (tag: Prisma.TagCreateInput): Promise<string> => {
-  await prismaClient.tag.create({data: tag});
+export const createTag = async (tag: Prisma.TagCreateInput, projectId: string): Promise<string> => {
+  log('tag:', tag);
+  await prismaClient.tag.create(
+    {
+      data: {
+        name: tag.name,
+        color: tag.color,
+        projects: {
+          connect: {
+            id: projectId,
+          },
+        },
+      }    
+    }
+  );
   return tag.id!;
 };
 

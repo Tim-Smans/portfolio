@@ -21,7 +21,7 @@ export const fetchTagById = async (id: string) => {
 export const createTag = async (_prevState: ActionResponse, formData: FormData): Promise<ActionResponse> =>{
   return formAction(createTagSchema, formData, async (data) => {
     log('formData:', formData);
-    await DAL.createTag(data as Prisma.TagCreateInput);
+    await DAL.createTag(data as Prisma.TagCreateInput, data.projectId);
     redirect('/');
   });
 };

@@ -163,7 +163,7 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                 {
                   isAdmin && (
-                    <AddTagModal />
+                    <AddTagModal projectId={project.id}/>
                   )
                 }
                 {project.tags.map((tag) => (
@@ -172,10 +172,10 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
                     label={tag.name}
                     sx={{
                       bgcolor: tag.color,
-                      color: 'white',
+                      color: 'black',
                       '&:hover': {
                         bgcolor: tag.color,
-                        opacity: 0.9,
+                        opacity: 0.4,
                       },
                     }}
                   />
