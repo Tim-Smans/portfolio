@@ -3,6 +3,7 @@ import * as users from './users';
 import * as projects from './projects';
 import * as skills from './skills';
 import * as tags from './tags';
+import * as images from './images';
 
 /**
  * Om het aantal import statements te beperken en de code overzichtelijk te houden, groeperen we alle dal functies in
@@ -15,6 +16,7 @@ export * from './users';
 export * from './projects';
 export * from './skills';
 export * from './tags';
+export * from './images';
 
 /**
  * We voorzien hier een default export met alle actions in de volledige applicatie.
@@ -27,4 +29,5 @@ export default {
   ...projects,
   ...skills,
   ...tags,
+  ...images,
 };
