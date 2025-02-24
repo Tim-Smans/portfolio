@@ -104,6 +104,9 @@ const ProjectsSection: FC<Props> = ({ isAdmin, projects }) => {
         }
       >
         <MenuItem onClick={handleDeleteProject}>Delete Project</MenuItem>
+        <Link href={`/admin/project/${contextMenu?.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <MenuItem>Update Project</MenuItem>
+        </Link>
       </Menu>
     </Container>
   );

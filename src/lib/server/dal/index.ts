@@ -2,6 +2,8 @@
 import * as users from './users';
 import * as roles from './roles';
 import * as projects from './projects';
+import * as skills from './skills';
+import * as tags from './tags';
 
 /**
  * Om het aantal import statements te beperken en de code overzichtelijk te houden, groeperen we alle dal functies in
@@ -13,6 +15,8 @@ import * as projects from './projects';
 export * from './users';
 export * from './roles';
 export * from './projects';
+export * from './skills';
+export * from './tags';
 
 /**
  * We voorzien hier een default export met alle actions in de volledige applicatie.
@@ -24,4 +28,6 @@ export default {
   ...users,
   ...roles,
   ...projects,
+  ...skills,
+  ...tags,
 };

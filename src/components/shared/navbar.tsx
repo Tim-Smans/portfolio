@@ -1,6 +1,7 @@
 'use client';
 import { useTheme } from '@/context/themeContext';
 import { AppBar, Button, Container, Stack, Toolbar, Typography } from '@mui/material';
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 interface Props{
@@ -18,11 +19,15 @@ const Navbar: FC<Props> = ({isAdmin}) => {
             Portfolio Tim Smans {isAdmin && <strong>(Admin)</strong>}
           </Typography>
           <Stack direction="row" spacing={4}>
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">Projects</Button>
-            <Button color="inherit">About</Button>
-            <Button color="inherit">Contact</Button>
-            <Button color="inherit" onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')}>
+            <Link href="/">
+              <Button color="primary">Home</Button>
+            </Link>
+            <Link href="/projects">
+              <Button color="primary">Projects</Button>
+            </Link>            
+            <Button color="primary">About</Button>
+            <Button color="primary">Contact</Button>
+            <Button color="primary" onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')}>
               {theme === 'dark' ? 'Light' : 'Dark'}
             </Button>
           </Stack>
