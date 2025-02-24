@@ -2,9 +2,11 @@
 import React, { FC } from 'react';
 import { Box, Container, Typography, Chip, Grid, Paper, Button } from '@mui/material';
 import { ImageAspectRatio, Share, Web } from '@mui/icons-material';
-import Image from 'next/image';
 import { Project } from '@/lib/models/project';
 import AddTagModal from './addTagModal';
+import AddImageModal from './addImageModal';
+import Image from 'next/image';
+import ZoomableImage from '../shared/zoomableImage';
 
 interface Props{
   project: Project
@@ -105,13 +107,7 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
             </Typography>
             {
               isAdmin && (
-                <Button
-                  variant='outlined'
-                  size='small'
-                  startIcon={<ImageAspectRatio />}
-                >
-                  Add image to project
-                </Button>
+                <AddImageModal projectId={project.id}/>
               )
             }
             <Grid container spacing={2}>
@@ -126,7 +122,7 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
                       borderRadius: 2,
                     }}
                   >
-                    <Image src={image.url || '/placeholder.svg'} alt={image.alt} fill style={{ objectFit: 'cover' }} />
+                    <ZoomableImage src={image.url || '/placeholder.svg'} alt={image.alt} />
                   </Paper>
                 </Grid>
               ))}

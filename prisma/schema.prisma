@@ -19,6 +19,7 @@ model Project {
   coverImageUrl    String? @default("https://via.assets.so/img.jpg?w=200&h=150&tc=white&bg=#cecece") @db.VarChar(255)
   shortDescription String @db.VarChar(255)
   description      String @db.VarChar(1000)
+  projectUrl       String? @db.VarChar(1000)
   tags             Tag[]
   images           Image[]
 }

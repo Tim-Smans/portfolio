@@ -8,22 +8,23 @@ import Actions from '@actions';
 import Form from '@/components/shared/form';
 import SubmitButtonWithLoading from '@/components/shared/submitButtonWithLoading';
 import { createTagSchema } from '@/lib/schemas/tagSchema';
+import { createImageSchema } from '@/lib/schemas/imageSchema';
 
 
 interface Props{
   projectId: string
 }
 
-const TagForm: FC<Props> = ({projectId}) => {
-  const [actionResponse, executeAction] = useActionState(Actions.createTag, {success: false});
+const ImageForm: FC<Props> = ({projectId}) => {
+  const [actionResponse, executeAction] = useActionState(Actions.createImage, {success: false});
 
 
   const form = useForm({
-    resolver: zodResolver(createTagSchema),
+    resolver: zodResolver(createImageSchema),
     defaultValues: {
-      name: '',
+      url: '',
       projectId: projectId,
-      color: '#000000',
+      alt: '',
     },
   });
 
@@ -50,15 +51,27 @@ const TagForm: FC<Props> = ({projectId}) => {
             <Form hookForm={form} action={executeAction} actionResult={actionResponse}>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <TextField
-                  {...form.register('name')}
-                  placeholder="Name"
-                  label="Name"
+                  {...form.register('url')}
+                  placeholder="Url"
+                  label="Url"
                   fullWidth
                   variant="outlined"
-                  error={!!form.formState.errors.name || !!actionResponse?.errors?.name}
-                  defaultValue={actionResponse?.submittedData?.name ?? ''}
+                  error={!!form.formState.errors.url || !!actionResponse?.errors?.url}
+                  defaultValue={actionResponse?.submittedData?.url ?? ''}
                   helperText={
-                    form.formState.errors.name?.message || actionResponse?.errors?.name?.[0]
+                    form.formState.errors.url?.message || actionResponse?.errors?.url?.[0]
+                  }
+                />
+                <TextField
+                  {...form.register('alt')}
+                  placeholder="Alt"
+                  label="Alt"
+                  fullWidth
+                  variant="outlined"
+                  error={!!form.formState.errors.alt || !!actionResponse?.errors?.alt}
+                  defaultValue={actionResponse?.submittedData?.alt ?? ''}
+                  helperText={
+                    form.formState.errors.alt?.message || actionResponse?.errors?.alt?.[0]
                   }
                 />
                 <TextField
@@ -73,16 +86,11 @@ const TagForm: FC<Props> = ({projectId}) => {
                     form.formState.errors.projectId?.message || actionResponse?.errors?.projectId?.[0]
                   }
                 />
-                <input
-                  type='color'
-                  {...form.register('color')}
-                  placeholder="Color"
-                  defaultValue={actionResponse?.submittedData?.color ?? ''}
-                />
+
                 <SubmitButtonWithLoading
                   className="mt-4 bg-red-500 rounded hover:bg-red-600"
-                  loadingText="Logging in ..."
-                  text="Create tag"
+                  loadingText="Creating image ..."
+                  text="Create image"
                   role="button"
                 />
               </Box>
@@ -101,4 +109,4 @@ const TagForm: FC<Props> = ({projectId}) => {
   );
 };
 
-export default TagForm;
+export default ImageForm;
