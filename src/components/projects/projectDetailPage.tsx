@@ -7,6 +7,7 @@ import AddTagModal from './addTagModal';
 import AddImageModal from './addImageModal';
 import Image from 'next/image';
 import ZoomableImage from '../shared/zoomableImage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Props{
   project: Project
@@ -174,7 +175,8 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
                         opacity: 0.4,
                       },
                     }}
-                  />
+                  >
+                  </Chip>
                 ))}
               </Box>
             </Box>

@@ -45,7 +45,7 @@ const ImageForm: FC<Props> = ({projectId}) => {
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 3 }}>
               <LockOutlined sx={{ fontSize: 40, color: 'primary.main', mb: 2 }} />
               <Typography component='h1' variant='h5'>
-                Add a tag
+                Add an image
               </Typography>
             </Box>
             <Form hookForm={form} action={executeAction} actionResult={actionResponse}>
@@ -80,6 +80,7 @@ const ImageForm: FC<Props> = ({projectId}) => {
                   fullWidth
                   hidden
                   variant="outlined"
+                  onChange={(e) => form.setValue('projectId', projectId)}
                   error={!!form.formState.errors.projectId || !!actionResponse?.errors?.projectId}
                   defaultValue={actionResponse?.submittedData?.projectId ?? ''}
                   helperText={

@@ -28,6 +28,7 @@ model Tag {
     id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
     name      String  @db.VarChar(20)
     color     String? @db.VarChar(30) @default("")
+    iconName  String? @db.VarChar(30) @default("")
     projects  Project[]
 }
 

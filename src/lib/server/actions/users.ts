@@ -51,6 +51,7 @@ export const signOut = async (): Promise<void> => {
   if (sessionId) {
     await DAL.stopSession(sessionId);
     await clearSessionCookie();
+    redirect('/');
   }
 };
 
