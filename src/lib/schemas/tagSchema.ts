@@ -7,6 +7,7 @@ export const tagSchema = z.object({
   }),
   projectId: z.string().uuid(),
   color: z.string().default('#000000'),
+  iconName: z.string().default(''),
 });
 
-export const createTagSchema = tagSchema.pick({name: true, projectId: true, color: true});
+export const createTagSchema = tagSchema.pick({name: true, projectId: true, color: true, iconName: true});

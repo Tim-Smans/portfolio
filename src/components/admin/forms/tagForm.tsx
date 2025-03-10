@@ -24,6 +24,7 @@ const TagForm: FC<Props> = ({projectId}) => {
       name: '',
       projectId: projectId,
       color: '#000000',
+      iconName: '',
     },
   });
 
@@ -63,14 +64,25 @@ const TagForm: FC<Props> = ({projectId}) => {
                 />
                 <TextField
                   {...form.register('projectId')}
-                  label="projectId"
+                  label="ProjectId"
                   fullWidth
-                  hidden
                   variant="outlined"
+                  onChange={() => form.setValue('projectId', projectId)}
                   error={!!form.formState.errors.projectId || !!actionResponse?.errors?.projectId}
                   defaultValue={actionResponse?.submittedData?.projectId ?? ''}
                   helperText={
                     form.formState.errors.projectId?.message || actionResponse?.errors?.projectId?.[0]
+                  }
+                />
+                <TextField
+                  {...form.register('iconName')}
+                  label="Icon Name"
+                  fullWidth
+                  variant="outlined"
+                  error={!!form.formState.errors.iconName || !!actionResponse?.errors?.iconName}
+                  defaultValue={actionResponse?.submittedData?.iconName ?? ''}
+                  helperText={
+                    form.formState.errors.iconName?.message || actionResponse?.errors?.iconName?.[0]
                   }
                 />
                 <input
