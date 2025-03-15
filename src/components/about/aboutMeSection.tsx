@@ -10,18 +10,11 @@ const AboutMeSection: FC = () => {
       </Typography>
       <Divider sx={{ mb: 2 }} />
       <Typography variant="body1" paragraph>
-        Hello! I'm John, a creative developer based in San Francisco. I have a passion for building digital
-        experiences that are both beautiful and functional. With a background in both design and development, I
-        bring a unique perspective to every project I work on.
-      </Typography>
-      <Typography variant="body1" paragraph>
-        I believe that great design is about more than just aesthetics – it's about creating intuitive,
-        accessible, and enjoyable experiences for users. My approach combines technical expertise with creative
-        problem-solving to build solutions that meet both user needs and business goals.
+        Hello! I'm Tim, a developer based in Belgium. I completed a two-year associate degree in Programming at Thomas More Campus Turnhout, and did my workplace learning (internship) in Helsinki Finland at the Metropolia University of Applied Sciences. I have a background in construction giving me a unique perspective to problem solving and strong working ethic.
       </Typography>
       <Typography variant="body1">
-        When I'm not coding or designing, you can find me hiking in the mountains, experimenting with new coffee
-        brewing methods, or playing guitar. I'm always looking for new challenges and opportunities to learn and
+        When I'm not coding, you can find me hiking, traveling to new countries, playing games (both board and online) or exploring new technologies.
+        I'm always seeking for new challenges and opportunities to learn and
         grow.
       </Typography>
     </Paper>

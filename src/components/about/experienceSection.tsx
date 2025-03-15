@@ -7,10 +7,13 @@ import TimelineDot from "@mui/lab/TimelineDot"
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent"
 import { Divider, Paper, Typography } from '@mui/material'
 import { FC } from 'react'
-import { School, Work } from '@mui/icons-material'
-
+import { School, Work, AirplanemodeActive} from '@mui/icons-material'
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const ExperienceSection: FC = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Paper elevation={2} sx={{ p: 3 }}>
@@ -18,64 +21,36 @@ const ExperienceSection: FC = () => {
       Experience & Education
     </Typography>
     <Divider sx={{ mb: 2 }} />
-    <Timeline position={"alternate"}>
+    <Timeline position={isMobile ? "right" : "alternate"}>      
       <TimelineItem>
         <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
-          2020 - Present
+          February 2025 - June 2025
         </TimelineOppositeContent>
         <TimelineSeparator>
-          <TimelineDot color="primary">
-            <Work />
+          <TimelineDot color="secondary">
+            <AirplanemodeActive />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
           <Typography variant="h6" component="span">
-            Senior Frontend Developer
+            Internship AI Scalers
           </Typography>
           <Typography variant="subtitle2" color="primary">
-            Tech Innovations Inc.
+            Metroplia University Of Applied Sciences Helsinki
           </Typography>
           <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
-            2020 - Present
+            February 2025 - June 2025
           </Typography>
           <Typography>
-            Leading frontend development for enterprise applications. Implementing modern React architectures
-            and mentoring junior developers.
+            14 Week international internship at Metropolia University in Finland. I learned about the fundamentals of Artificial Intelligence and Machine Learning. Working for their project called 'AI Scalers'
           </Typography>
         </TimelineContent>
       </TimelineItem>
 
       <TimelineItem>
         <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
-          2017 - 2020
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot color="primary">
-            <Work />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6" component="span">
-            UI/UX Developer
-          </Typography>
-          <Typography variant="subtitle2" color="primary">
-            Digital Solutions LLC
-          </Typography>
-          <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
-            2017 - 2020
-          </Typography>
-          <Typography>
-            Designed and developed user interfaces for web and mobile applications. Collaborated with product
-            managers and UX researchers.
-          </Typography>
-        </TimelineContent>
-      </TimelineItem>
-
-      <TimelineItem>
-        <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
-          2015 - 2017
+          2023 - Present
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot color="secondary">
@@ -85,17 +60,42 @@ const ExperienceSection: FC = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Typography variant="h6" component="span">
-            Master's in Computer Science
+            Associate Degree in Programming
           </Typography>
           <Typography variant="subtitle2" color="primary">
-            Stanford University
+            Thomas More University Of Applied Sciences
           </Typography>
           <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
-            2015 - 2017
+          2023 - Present
           </Typography>
           <Typography>
-            Specialized in Human-Computer Interaction and Software Engineering. Thesis on adaptive user
-            interfaces.
+            A two-year practice-oriented program that equiped me with essential programming skills in C#, JavaScript, object-oriented programming, and mobile development.
+          </Typography>
+        </TimelineContent>
+      </TimelineItem>
+
+      <TimelineItem>
+        <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
+          2020 - 2023
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot color="primary">
+            <Work />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>
+          <Typography variant="h6" component="span">
+            High-end residential construction
+          </Typography>
+          <Typography variant="subtitle2" color="primary">
+            Vlassak verhulst
+          </Typography>
+          <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
+          2020 - 2023
+          </Typography>
+          <Typography>
+            Construction of high-end residential buildings. Usually working outside of the country.
           </Typography>
         </TimelineContent>
       </TimelineItem>
@@ -111,16 +111,16 @@ const ExperienceSection: FC = () => {
         </TimelineSeparator>
         <TimelineContent>
           <Typography variant="h6" component="span">
-            Bachelor's in Computer Science
+              Secondary school diploma in Construction
           </Typography>
           <Typography variant="subtitle2" color="primary">
-            MIT
+            Vito Hoogstraten
           </Typography>
           <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
-            2011 - 2015
+            2014 - 2020
           </Typography>
           <Typography>
-            Graduated with honors. Minor in Design. Active in hackathons and coding competitions.
+            Diploma in construction with a practical focus.
           </Typography>
         </TimelineContent>
       </TimelineItem>

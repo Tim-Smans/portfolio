@@ -28,7 +28,9 @@ const Navbar: FC<Props> = ({isAdmin}) => {
             <Link href="/about">
               <Button color="primary">About</Button>
             </Link>               
-            <Button color="primary">Contact</Button>
+            <Link href="/contact">
+              <Button color="primary">Contact</Button>
+            </Link>             
             <Button color="primary" onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')}>
               {theme === 'dark' ? 'Light' : 'Dark'}
             </Button>

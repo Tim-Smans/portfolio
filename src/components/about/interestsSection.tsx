@@ -1,4 +1,4 @@
-import { Brush, Code, Hiking, LocalCafe, MusicNote } from '@mui/icons-material'
+import { Brush, Code, Hiking, LocalCafe, MusicNote, Psychology, AirplanemodeActive } from '@mui/icons-material'
 import { Avatar, Box, Divider, Grid, Paper, Typography } from '@mui/material'
 import { FC } from 'react'
 
@@ -12,10 +12,11 @@ const InterestsSection: FC = () => {
       <Grid container spacing={2}>
         {[
           { icon: <Code />, label: "Coding" },
-          { icon: <Brush />, label: "Design" },
+          { icon: <Psychology />, label: "Machine Learning" },
           { icon: <MusicNote />, label: "Music" },
           { icon: <LocalCafe />, label: "Coffee" },
           { icon: <Hiking />, label: "Hiking" },
+          { icon: <AirplanemodeActive />, label: "Traveling" },
         ].map((interest, index) => (
           <Grid item xs={6} key={index}>
             <Box

@@ -12,6 +12,7 @@ import {
 } from "@mui/material"
 import { Download } from '@mui/icons-material';
 import { useTheme } from '@/context/themeContext';
+import Link from 'next/link';
 
 
 
@@ -32,8 +33,8 @@ const Hero: FC = () => {
        <Grid container spacing={4} alignItems="center">
          <Grid item xs={12} md={4} sx={{ textAlign: { xs: "center", md: "right" } }}>
            <Avatar
-             src="/placeholder.svg?height=300&width=300"
-             alt="John Doe"
+             src="profile.png"
+             alt="Tim Smans Profile Picture"
              sx={{
                width: { xs: 200, md: 250 },
                height: { xs: 200, md: 250 },
@@ -45,15 +46,16 @@ const Hero: FC = () => {
          </Grid>
          <Grid item xs={12} md={8}>
            <Typography variant="h2" component="h1" gutterBottom>
-             John Doe
+             Tim Smans
            </Typography>
            <Typography variant="h5" gutterBottom>
-             Creative Developer & Designer
+             Student  Developer | Backend & AI Engineer
            </Typography>
            <Typography variant="body1" paragraph sx={{ maxWidth: 600 }}>
-             I'm a passionate developer with 5+ years of experience creating beautiful, functional, and user-centered
-             digital experiences. I combine technical expertise with creative problem-solving to build innovative
-             solutions.
+           Mainly focusing on <i>Software Development</i> and <i>Artificial Intelligence</i>, I specialize in building scalable applications and AI-driven solutions.
+           I have experience with <b>backend development</b>, <b>cloud infrastructure</b> and <b>automation</b>, I focus on creating efficient and reliable systems.
+             <br/>
+             During my internship in Finland, I worked on developing AI models, machine learning workflows, and scalable backend architectures. Skilled in JavaScript, C#, Python and cloud-native technologies, I love creating meaningful solutions. 
            </Typography>
            <Box
              sx={{
@@ -67,9 +69,11 @@ const Hero: FC = () => {
              <Button variant="contained" color="secondary" startIcon={<Download />}>
                Download Resume
              </Button>
-             <Button variant="outlined" sx={{ color: "white", borderColor: "white" }}>
-               Contact Me
-             </Button>
+             <Link href={"/contact"}>
+              <Button variant="outlined" sx={{ color: "gray", borderColor: "gray" }}>
+                Contact Me
+              </Button>
+             </Link>
            </Box>
          </Grid>
        </Grid>

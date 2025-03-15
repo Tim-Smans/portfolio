@@ -15,12 +15,11 @@ const ConnectSection: FC = () => {
       </Typography>
       <Box sx={{ display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap" }}>
         {[
-          { icon: <Email />, label: "Email" },
-          { icon: <LinkedIn />, label: "LinkedIn" },
-          { icon: <GitHub />, label: "GitHub" },
-          { icon: <Twitter />, label: "Twitter" },
+          { icon: <Email />, label: "Email", path: "mailto:tim.smans@outlook.com" },
+          { icon: <LinkedIn />, label: "LinkedIn", path: "https://www.linkedin.com/in/tim-smans/" },
+          { icon: <GitHub />, label: "GitHub", path: "https://github.com/Tim-Smans" },
         ].map((social, index) => (
-          <Button key={index} variant="outlined" startIcon={social.icon} sx={{ minWidth: 140 }}>
+          <Button key={index} variant="outlined" startIcon={social.icon} sx={{ minWidth: 140 } } onClick={() => window.open(social.path, "_blank")}>
             {social.label}
           </Button>
         ))}

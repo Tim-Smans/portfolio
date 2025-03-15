@@ -17,7 +17,7 @@ const HeroSection: FC = () => {
             Hi, I&apos;m <Box component="span" color="primary.main">Tim Smans</Box>
           </Typography>
           <Typography variant="h4" gutterBottom color="text.secondary">
-            Student Develop
+            Student Developer
           </Typography>
           <Typography variant="body1" color="text.secondary" paragraph>
             I am a passionate student developer who is currently doing an internship in Finland
@@ -34,9 +34,11 @@ const HeroSection: FC = () => {
         <Box sx={{ flex: 1 }}>
           <Box
             component="img"
+            src='/comp.svg'
             alt="Workspace illustration"
             sx={{
-              width: '100%',
+              color: 'text.secondary',
+              width: '50%',
               height: 'auto',
               borderRadius: 2,
             }}
