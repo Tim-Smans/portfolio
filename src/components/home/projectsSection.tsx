@@ -16,6 +16,9 @@ const ProjectsSection: FC<Props> = ({ isAdmin, projects }) => {
   const [contextMenu, setContextMenu] = useState<{ mouseX: number; mouseY: number; id?: string } | null>(null);
 
   const handleContextMenu = useCallback((event: React.MouseEvent, id: string) => {
+    if(!isAdmin) {
+      return;
+    }
     event.preventDefault();
     setContextMenu({
       mouseX: event.clientX - 2,
@@ -65,7 +68,7 @@ const ProjectsSection: FC<Props> = ({ isAdmin, projects }) => {
           mt: 4,
         }}
       >
-        {projects.map((project) => (
+        {projects.slice(0, 3).map((project) => (
           <Card
             key={project.name}
             onContextMenu={(e) => handleContextMenu(e, project.id)} // Contextmenu activeren
@@ -85,9 +88,14 @@ const ProjectsSection: FC<Props> = ({ isAdmin, projects }) => {
                 {project.shortDescription}
               </Typography>
               <Stack direction="row" spacing={1}>
-                {project.tags.map((tag: Tag) => (
+                {project.tags.slice(0, 3).map((tag: Tag) => (
                   <Chip key={tag.id} label={tag.name} size="small" />
                 ))}
+                {
+                  project.tags.length > 3 && (
+                    <Chip label={`+${project.tags.length - 3}`} size="small" />
+                  )
+                }
               </Stack>
             </CardContent>
           </Card>

@@ -19,9 +19,9 @@ export const seedProd = async (prisma: PrismaClient) => {
   // ** Users **
   await prisma.user.create({
     data: {
-      username: 'admin',
-      email: 'admin@example.com',
-      password: hashPassword('123test123'),
+      username: 'timsmans',
+      email: 'tim.smans@outlook.com',
+      password: hashPassword('Kwispel123!'),
       roleId: adminRole.id,
     },
   });

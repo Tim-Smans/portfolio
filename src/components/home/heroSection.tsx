@@ -2,6 +2,7 @@
 
 import { useTheme } from '@/context/themeContext';
 import { Container, Typography, Box, Stack, Button } from '@mui/material';
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 const HeroSection: FC = () => {
@@ -23,12 +24,16 @@ const HeroSection: FC = () => {
             I am a passionate student developer who is currently doing an internship in Finland
           </Typography>
           <Stack direction="row" spacing={2}>
-            <Button variant="contained" size="large">
-              View Projects
-            </Button>
-            <Button variant="outlined" size="large">
-              Contact Me
-            </Button>
+            <Link href={'/projects'}>
+              <Button variant="contained" size="large">
+                View Projects
+              </Button>
+            </Link>
+            <Link href={'/contact'}>
+              <Button variant="outlined" size="large">
+                Contact Me
+              </Button>
+            </Link>
           </Stack>
         </Box>
         <Box sx={{ flex: 1 }}>
@@ -41,6 +46,8 @@ const HeroSection: FC = () => {
               width: '50%',
               height: 'auto',
               borderRadius: 2,
+              marginLeft: 10,
+              display: { xs: 'none', md: 'block' },
             }}
           />
         </Box>

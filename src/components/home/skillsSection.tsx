@@ -14,6 +14,9 @@ const SkillsSection: FC<Props> = ({isAdmin, skills}) => {
   const [contextMenu, setContextMenu] = useState<{ mouseX: number; mouseY: number; id?: string } | null>(null);
 
   const handleContextMenu = useCallback((event: React.MouseEvent, id: string) => {
+    if(!isAdmin) {
+      return;
+    }
     event.preventDefault();
     setContextMenu({
       mouseX: event.clientX - 2,
@@ -50,7 +53,7 @@ const SkillsSection: FC<Props> = ({isAdmin, skills}) => {
         )
       }
       <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 4, mt: 4 }}>
-        {skills.map((skill) => (
+        {skills.slice(0, 5).map((skill) => (
           <Card key={skill.title} elevation={0} sx={{ textAlign: 'center', bgcolor: 'transparent', width: { xs: '100%', sm: 'calc(50% - 16px)', md: 'calc(25% - 16px)' } }}
             onContextMenu={(e) => handleContextMenu(e, skill.id)}>
             <CardContent>

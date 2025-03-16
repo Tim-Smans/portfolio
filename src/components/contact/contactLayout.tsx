@@ -2,6 +2,7 @@
 
 import { Email, GitHub, Instagram, LinkedIn, LocationOn, Phone, Send, Twitter } from '@mui/icons-material';
 import { Alert, Box, Button, Container, Divider, Grid, IconButton, List, ListItem, ListItemIcon, ListItemText, Paper, Snackbar, TextField, Typography } from '@mui/material';
+import Link from 'next/link';
 import { FC, useState } from 'react';
 
 const ContactLayout: FC = () => {
@@ -245,18 +246,16 @@ const ContactLayout: FC = () => {
               </Typography>
 
               <Box sx={{ display: "flex", justifyContent: "space-around", mt: 3 }}>
-                <IconButton color="primary" size="large" aria-label="LinkedIn">
-                  <LinkedIn fontSize="large" />
-                </IconButton>
+                <Link href="https://www.linkedin.com/in/timsmans/" target='_blank' >
+                  <IconButton color="primary" size="large" aria-label="LinkedIn">
+                    <LinkedIn fontSize="large" />
+                  </IconButton>
+                </Link>
+                <Link href="https://github.com/Tim-Smans" target='_blank' >
                 <IconButton color="primary" size="large" aria-label="GitHub">
                   <GitHub fontSize="large" />
                 </IconButton>
-                <IconButton color="primary" size="large" aria-label="Twitter">
-                  <Twitter fontSize="large" />
-                </IconButton>
-                <IconButton color="primary" size="large" aria-label="Instagram">
-                  <Instagram fontSize="large" />
-                </IconButton>
+                </Link>
               </Box>
             </Paper>
         </Grid>

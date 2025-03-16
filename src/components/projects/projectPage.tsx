@@ -64,7 +64,7 @@ const ProjectsPage: FC<Props> = ({projectsData}) => {
                     {project.name}
                   </Typography>
                   <Typography variant='body2' color='text.secondary' paragraph>
-                    {project.description}
+                    {project.shortDescription}
                   </Typography>
                   <Box sx={{ mt: 2 }}>
                     {project.tags.map((tag) => (

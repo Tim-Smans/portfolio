@@ -5,6 +5,7 @@ import React from 'react';
 import { ThemeProvider } from '@/context/themeContext';
 import { CssBaseline, GlobalStyles } from '@mui/material';
 import Actions from '@actions';
+import Footer from '@/components/shared/footer';
 export const metadata: Metadata = {
   title: 'Portfolio of Tim Smans',
   description:
@@ -33,6 +34,7 @@ const RootLayout = async ({
             />
             <Navbar isAdmin={admin} />
             {children}
+            <Footer/>
           </ClientThemeProvider>
         </ThemeProvider>
 
