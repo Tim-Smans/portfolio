@@ -74,7 +74,7 @@ const ProjectsPage: FC<Props> = ({projectsData}) => {
                   
                 </CardContent>
                 <Link href={`/projects/${project.id}`}>
-                  <Button>Details</Button>
+                  <Button variant='contained' sx={{width: "100%"}}>Details</Button>
                 </Link>
               </Card>
             </Grid>
