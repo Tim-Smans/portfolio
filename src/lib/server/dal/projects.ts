@@ -1,7 +1,7 @@
 import { Project as PrismaProject } from '@prisma/client';
 import { prismaClient } from './utils/prismaClient';
 import { Project } from '@/lib/models/project';
-
+import slugify from 'slugify';
 
 export const getProjects = async (): Promise<Project[]> => {
   return await prismaClient.project.findMany({
@@ -26,10 +26,26 @@ export const getProjectById = async (id: string): Promise<Project | null> => {
   });
 };
 
+export const getProjectBySlug = async (slug: string): Promise<Project | null> => {
+  return await prismaClient.project.findUnique({
+    where: {
+      slug,
+    },
+    include: {
+      tags: true,
+      images: true,
+      _count: true,
+    },
+  });
+};
+
 export const createProject = async (project: PrismaProject) => {
   if(project.coverImageUrl === ''){
     project.coverImageUrl = 'https://via.assets.so/img.jpg?w=200&h=150&tc=white&bg=#cecece';
   }
+
+  const slug = slugify(project.name, {lower: true})
+  project.slug = slug
   
   return await prismaClient.project.create({data: project});
 };

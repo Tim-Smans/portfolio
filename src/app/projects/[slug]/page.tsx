@@ -4,13 +4,13 @@ import ProjectDetail from '@/components/projects/projectDetailPage';
 
 interface Props {
   params: Promise<{
-    projectId: string
+    slug: string
   }>
 }
 
 const ProjectDetailPage: FC<Props> = async ({params}) => {
-  const {projectId} = await params;
-  const project = await Actions.fetchProjectById(projectId);
+  const {slug} = await params;
+  const project = await Actions.fetchProjectBySlug(slug);
   const admin = await Actions.isAdmin();
 
   return (

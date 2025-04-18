@@ -73,7 +73,7 @@ const ProjectsPage: FC<Props> = ({projectsData}) => {
                   </Box>
                   
                 </CardContent>
-                <Link href={`/projects/${project.id}`}>
+                <Link href={`/projects/${project.slug}`}>
                   <Button variant='contained' sx={{width: "100%"}}>Details</Button>
                 </Link>
               </Card>

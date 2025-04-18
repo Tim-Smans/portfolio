@@ -8,13 +8,14 @@ import AddImageModal from './addImageModal';
 import Image from 'next/image';
 import ZoomableImage from '../shared/zoomableImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link';
 
-interface Props{
+interface Props {
   project: Project
   isAdmin: boolean
 }
 
-const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
+const ProjectDetail: FC<Props> = ({ project, isAdmin }) => {
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
       {/* Hero Section */}
@@ -108,7 +109,7 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
             </Typography>
             {
               isAdmin && (
-                <AddImageModal projectId={project.id}/>
+                <AddImageModal projectId={project.id} />
               )
             }
             <Grid container spacing={2}>
@@ -133,15 +134,27 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
           {/* Right Column - Actions & Tags */}
           <Grid item xs={12} md={4}>
             <Box sx={{ position: 'sticky', top: 24 }}>
-              <Button
-                variant='contained'
-                fullWidth
-                size='large'
-                startIcon={<Web />}
-                sx={{ mb: 2 }}
-              >
-                Open project online
-              </Button>
+              {
+                project.projectUrl &&
+                <Button
+                  variant='contained'
+                  fullWidth
+                  size='large'
+                  startIcon={<Web />}
+                  sx={{ mb: 2 }}
+                >
+                  <a href={
+                      project.projectUrl.startsWith('http') ?
+                        project.projectUrl
+                        :
+                        `https://${project.projectUrl}`
+                      } 
+                    target='_blank'
+                    style={{textDecoration: 'none', color: 'white'}}>
+                    Open project online
+                  </a>
+                </Button>
+              }
               <Button
                 variant='outlined'
                 fullWidth
@@ -160,7 +173,7 @@ const ProjectDetail: FC<Props> = ({project, isAdmin}) => {
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                 {
                   isAdmin && (
-                    <AddTagModal projectId={project.id}/>
+                    <AddTagModal projectId={project.id} />
                   )
                 }
                 {project.tags.map((tag) => (

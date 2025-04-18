@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/context/themeContext';
 import { CssBaseline, GlobalStyles } from '@mui/material';
 import Actions from '@actions';
 import Footer from '@/components/shared/footer';
+
 export const metadata: Metadata = {
   title: 'Portfolio of Tim Smans',
   description:
@@ -18,7 +19,7 @@ const RootLayout = async ({
 }: {
   children: React.ReactNode;
 }) => {
-  const admin = await Actions.isAdmin(); // Haal de admin-status server-side op
+  const admin = await Actions.isAdmin();
   return (
     <html lang='en'>
       <body>          

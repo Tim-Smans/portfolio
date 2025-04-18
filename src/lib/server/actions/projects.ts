@@ -18,6 +18,10 @@ export const fetchProjectById = async (id: string): Promise<FullProject> => {
   return await DAL.getProjectById(id) as FullProject;
 };
 
+export const fetchProjectBySlug = async (slug: string): Promise<FullProject> => {
+  return await DAL.getProjectBySlug(slug) as FullProject;
+};
+
 export const createNewProject = async (_prevState: ActionResponse, formData: FormData): Promise<ActionResponse> =>{
   return formAction(createProjectSchema, formData, async (data) => {
     log('formData:', formData);

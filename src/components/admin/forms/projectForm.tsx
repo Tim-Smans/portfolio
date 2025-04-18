@@ -20,6 +20,7 @@ type ProjectFormValues = {
   description: string;
   shortDescription: string;
   coverImageUrl?: string | null;
+  projectUrl?: string | null;
   id?: string;
 };
 
@@ -103,6 +104,16 @@ const ProjectForm: FC<Props> = ({ isUpdate, existingProject }) => {
                   error={!!hookForm.formState.errors.coverImageUrl || !!actionResult?.errors?.coverImageUrl}
                   helperText={
                     hookForm.formState.errors.coverImageUrl?.message || actionResult?.errors?.coverImageUrl?.[0]
+                  }
+                />
+                <TextField
+                  {...hookForm.register('projectUrl')}
+                  label="Project URL (optional)"
+                  fullWidth
+                  variant="outlined"
+                  error={!!hookForm.formState.errors.projectUrl || !!actionResult?.errors?.projectUrl}
+                  helperText={
+                    hookForm.formState.errors.projectUrl?.message || actionResult?.errors?.projectUrl?.[0]
                   }
                 />
                 <SubmitButtonWithLoading

@@ -12,6 +12,7 @@ export const projectSchema = z.object({
     message: 'The description of a project must be at least 30 characters long',
   }),
   coverImageUrl: z.string().optional(),
+  projectUrl: z.string().optional(),
 });
 
-export const createProjectSchema = projectSchema.pick({name: true, description: true, shortDescription: true, coverImageUrl: true});
+export const createProjectSchema = projectSchema.omit({id: true});

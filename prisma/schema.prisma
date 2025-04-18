@@ -17,6 +17,7 @@ datasource db {
 model Project {
   id               String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name             String  @db.VarChar(255)
+  slug             String  @db.VarChar(255) @unique
   coverImageUrl    String? @default("https://via.assets.so/img.jpg?w=200&h=150&tc=white&bg=#cecece") @db.VarChar(255)
   shortDescription String @db.VarChar(255)
   description      String @db.VarChar(6000)
