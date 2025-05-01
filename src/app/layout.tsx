@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/context/themeContext';
 import { CssBaseline, GlobalStyles } from '@mui/material';
 import Actions from '@actions';
 import Footer from '@/components/shared/footer';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: 'Portfolio of Tim Smans',
@@ -35,6 +36,7 @@ const RootLayout = async ({
             />
             <Navbar isAdmin={admin} />
             {children}
+            <SpeedInsights/>
             <Footer/>
           </ClientThemeProvider>
         </ThemeProvider>
