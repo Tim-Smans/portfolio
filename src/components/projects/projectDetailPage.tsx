@@ -16,6 +16,21 @@ interface Props {
 }
 
 const ProjectDetail: FC<Props> = ({ project, isAdmin }) => {
+  var projectDescription: string = project.description.replace('\n', '<br/>')
+ 
+  var isBoldClosed = true
+  while(projectDescription.includes("**")){
+    projectDescription = projectDescription.replace('**', isBoldClosed ? '<b>' : '</b>')
+    isBoldClosed = !isBoldClosed
+  }
+
+  var isItalicClosed = true
+  while(projectDescription.includes("__")){
+    projectDescription = projectDescription.replace('__', isItalicClosed ? '<i>' : '</i>')
+    isItalicClosed = !isItalicClosed
+  }
+
+
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
       {/* Hero Section */}
