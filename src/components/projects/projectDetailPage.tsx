@@ -113,11 +113,10 @@ const ProjectDetail: FC<Props> = ({ project, isAdmin }) => {
             <Typography variant='h4' gutterBottom>
               Project Description
             </Typography>
-            {project.description.split('\n\n').map((paragraph, index) => (
-              <Typography key={index} variant='body1' paragraph>
-                {paragraph}
-              </Typography>
-            ))}
+            
+            <Typography variant='body1'>
+              {projectDescription}
+            </Typography>
 
             <Typography variant='h4' sx={{ mt: 8, mb: 4 }}>
               Project Gallery
