@@ -36,7 +36,7 @@ const ProjectsPage: FC<Props> = ({projectsData}) => {
     <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', py: 8 }}>
       <Container>
         <Typography variant='h2' component='h1' gutterBottom align='center'>
-          My Projects
+          My <Box component="span" color="primary.main">Projects</Box>
         </Typography>
         <Box sx={{ maxWidth: 600, mx: 'auto', mb: 6 }}>
           <TextField

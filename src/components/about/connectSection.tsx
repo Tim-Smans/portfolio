@@ -6,7 +6,7 @@ const ConnectSection: FC = () => {
 
   return (
     <Paper elevation={3} sx={{ p: 4, mt: 6, textAlign: "center" }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom color="primary.main">
         Let's Connect
       </Typography>
       <Typography variant="body1" sx={{ maxWidth: 700, mx: "auto", mb: 4 }}>

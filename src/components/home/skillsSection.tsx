@@ -41,7 +41,7 @@ const SkillsSection: FC<Props> = ({isAdmin, skills}) => {
   return (
     <Container sx={{ mb: 15 }}>
       <Typography variant="h4" align="center" gutterBottom>
-        My Skills
+        My <Box component="span" color="primary.main">Skills</Box>
       </Typography>
       {
         isAdmin && (

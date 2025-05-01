@@ -6,7 +6,7 @@ const PersonalInfo: FC = () => {
   
   return(
     <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
-    <Typography variant="h5" gutterBottom>
+    <Typography variant="h5" gutterBottom color='primary.main'>
       Personal Info
     </Typography>
     <Divider sx={{ mb: 2 }} />

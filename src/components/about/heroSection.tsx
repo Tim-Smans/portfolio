@@ -48,7 +48,7 @@ const Hero: FC = () => {
            <Typography variant="h2" component="h1" gutterBottom>
              Tim Smans
            </Typography>
-           <Typography variant="h5" gutterBottom>
+           <Typography variant="h5" gutterBottom color="primary.main">
              Student  Developer | Backend & AI Engineer
            </Typography>
            <Typography variant="body1" paragraph sx={{ maxWidth: 600 }}>

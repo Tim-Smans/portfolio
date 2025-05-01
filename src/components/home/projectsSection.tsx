@@ -42,8 +42,8 @@ const ProjectsSection: FC<Props> = ({ isAdmin, projects }) => {
   return (
     <Container sx={{ mb: 15 }}>
       <Typography variant="h4" align="center" gutterBottom>
-        Featured Projects
-      </Typography>
+        Featured <Box component="span" color="primary.main">Projects</Box>
+      </Typography> 
       {isAdmin && (
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <Link href={'/admin/project'}>
