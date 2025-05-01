@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ProjectDetail: FC<Props> = ({ project, isAdmin }) => {
-  var projectDescription: string = project.description.replace('\n', '<br/>')
+  var projectDescription: string = project.description.replaceAll('\\n', '<br/>')
  
   var isBoldClosed = true
   while(projectDescription.includes("**")){
@@ -114,9 +114,7 @@ const ProjectDetail: FC<Props> = ({ project, isAdmin }) => {
               Project Description
             </Typography>
             
-            <Typography variant='body1'>
-              {projectDescription}
-            </Typography>
+            <Typography variant='body1' dangerouslySetInnerHTML={{ __html: projectDescription }}/>
 
             <Typography variant='h4' sx={{ mt: 8, mb: 4 }}>
               Project Gallery
