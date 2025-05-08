@@ -28,7 +28,7 @@ model Project {
 
 model Tag {
     id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-    name      String  @db.VarChar(20)
+    name      String  @db.VarChar(30)
     color     String? @db.VarChar(30) @default("")
     iconName  String? @db.VarChar(30) @default("")
     projects  Project[]
@@ -70,6 +70,6 @@ model Role {
 
 model Skill {
   id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  title       String     @db.VarChar(20)
+  title       String     @db.VarChar(80)
   description String     @db.VarChar(100)
 }
