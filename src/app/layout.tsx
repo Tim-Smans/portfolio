@@ -23,6 +23,12 @@ const RootLayout = async ({
   const admin = await Actions.isAdmin();
   return (
     <html lang='en'>
+      <head>
+      <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body>          
         <ThemeProvider >
           <ClientThemeProvider>

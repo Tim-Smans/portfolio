@@ -72,4 +72,5 @@ model Skill {
   id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title       String     @db.VarChar(80)
   description String     @db.VarChar(100)
+  iconName    String?     @db.VarChar(100)
 }

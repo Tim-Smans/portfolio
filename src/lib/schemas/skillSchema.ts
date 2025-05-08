@@ -8,6 +8,7 @@ export const skillSchema = z.object({
   description: z.string().min(30, {
     message: 'The description of a skill must be at least 30 characters long',
   }),
+  iconName: z.string().optional(),
 });
 
-export const createSkillSchema = skillSchema.pick({title: true, description: true});
+export const createSkillSchema = skillSchema.pick({title: true, description: true, iconName:true});

@@ -9,6 +9,7 @@ import ProjectsSection from '@/components/home/projectsSection';
 import { fetchProjects, fetchSkills, isAdmin } from '@/lib/server/actions';
 import { hashPassword } from '@/lib/server/utils/passwordUtils';
 
+
 const Home: FC = async () => {
 
   const admin = await isAdmin();

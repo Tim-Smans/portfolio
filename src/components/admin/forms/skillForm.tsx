@@ -16,9 +16,10 @@ interface Props {
 }
 
 type SkillFormValues = {
-  title: string;
-  description: string;
-  id?: string;
+  title: string
+  description: string
+  id?: string
+  iconName: string | null
 };
 
 const SkillForm: FC<Props> = ({ isUpdate, existingSkill }) => {
@@ -29,7 +30,7 @@ const SkillForm: FC<Props> = ({ isUpdate, existingSkill }) => {
 
   const hookForm = useForm<SkillFormValues>({
     resolver: zodResolver(isUpdate ? skillSchema : createSkillSchema),
-    defaultValues: isUpdate ? { ...existingSkill } : { title: '', description: '' },
+    defaultValues: isUpdate ? { ...existingSkill } : { title: '', description: '', iconName: '' },
   });
 
   return (
@@ -76,6 +77,20 @@ const SkillForm: FC<Props> = ({ isUpdate, existingSkill }) => {
                   helperText={
                     hookForm.formState.errors.description?.message ||
                     actionResult?.errors?.description?.[0]
+                  }
+                />
+
+                <TextField
+                  {...hookForm.register('iconName')}
+                  label="Icon Name"
+                  fullWidth
+                  variant="outlined"
+                  error={
+                    !!hookForm.formState.errors.iconName || !!actionResult?.errors?.iconName
+                  }
+                  helperText={
+                    hookForm.formState.errors.iconName?.message ||
+                    actionResult?.errors?.iconName?.[0]
                   }
                 />
                 <SubmitButtonWithLoading

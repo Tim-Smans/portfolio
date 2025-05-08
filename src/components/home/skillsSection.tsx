@@ -4,6 +4,7 @@ import { Skill } from '@prisma/client';
 import Link from 'next/link';
 import React, { FC, useCallback, useState } from 'react';
 import Actions from '@actions';
+import DevIcon from '../shared/devIcon';
 
 interface Props{
   isAdmin: boolean
@@ -69,7 +70,9 @@ const SkillsSection: FC<Props> = ({isAdmin, skills}) => {
                   mx: 'auto',
                   mb: 2,
                 }}
-              />
+              >
+                <DevIcon iconName={skill.iconName != null ? skill.iconName : ''} size={40}/>
+              </Box>
               <Typography variant="h6" gutterBottom>
                 {skill.title}
               </Typography>
