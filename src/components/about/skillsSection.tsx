@@ -2,6 +2,7 @@ import { Box, Chip, Divider, Paper, Typography } from '@mui/material'
 import { Skill } from '@prisma/client'
 import { FC, useState } from 'react'
 import SkillPopup from './skillPopup'
+import DevIcon from '../shared/devIcon'
 
 interface Props {
   skills: Skill[]
@@ -21,15 +22,20 @@ const SkillsSection: FC<Props> = ({ skills }) => {
         <Divider sx={{ mb: 2 }} />
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {skills.map((skill) => (
-            <Chip 
-              key={skill.id} 
-              label={skill.title} 
-              color="primary" 
-              variant="outlined" 
-              sx={{ m: 0.5 }} 
+            <Chip
+              key={skill.id}
+              label={
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <DevIcon iconName={skill.iconName ?? ''} color='white' size={20} />
+                  <Typography variant="body2" color="inherit" sx={{ fontSize: 18 }}>{skill.title}</Typography>
+                </Box>
+              }
+              color="primary"
+              variant="outlined"
+              sx={{ m: 0.5 }}
               onClick={() => {
-                setCurrentSkill(skill)
-                setOpen(true)
+                setCurrentSkill(skill);
+                setOpen(true);
               }}
             />
           ))}
