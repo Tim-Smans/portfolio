@@ -6,7 +6,7 @@ import { FC } from 'react'
 const AboutMeSection: FC = () => {
   return (
     <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
-      <Typography variant="h5" gutterBottom color="primary.main">
+      <Typography variant="h5" gutterBottom>
         About Me
       </Typography>
       <Divider sx={{ mb: 2 }} />
