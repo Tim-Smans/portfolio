@@ -67,7 +67,7 @@ const Hero: FC = () => {
              }}
            >
              <Button variant="contained" color="secondary" startIcon={<Download />}>
-             <a style={{ textDecoration: "none", color: "inherit" }} href='/TimSmans_CV.pdf' target='_blank'>
+             <a style={{ textDecoration: "none", color: "inherit" }} href='/Global_resume_Tim_Smans.pdf' target='_blank'>
               Download Resume
              </a>
              </Button>
