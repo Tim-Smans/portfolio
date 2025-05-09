@@ -127,24 +127,24 @@ const Navbar: FC<Props> = ({isAdmin}) => {
 
 
   return (
-    <AppBar position="static" color="transparent" elevation={0}>
+    <AppBar position="static" color="transparent" elevation={0} sx={{marginTop: 1}}>
       <Container>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h6" color="primary">
+          <Typography variant="h4" color="primary">
             Tim Smans {isAdmin && <strong>(Admin)</strong>}
           </Typography>
-          <Stack direction="row" spacing={4}>
+          <Stack direction="row" spacing={4} >
             <Link href="/">
-              <Button color="primary" size='large'>Home</Button>
+              <Button color="primary" size='large' sx={{fontSize: 23}}>Home</Button>
             </Link>
             <Link href="/projects">
-              <Button color="primary" size='large'>Projects</Button>
+              <Button color="primary" size='large' sx={{fontSize: 23}}>Projects</Button>
             </Link>            
             <Link href="/about">
-              <Button color="primary" size='large'>About</Button>
+              <Button color="primary" size='large' sx={{fontSize: 23}}>About</Button>
             </Link>               
             <Link href="/contact">
-              <Button color="primary" size='large'>Contact</Button>
+              <Button color="primary" size='large' sx={{fontSize: 23}}>Contact</Button>
             </Link>             
             <Button color="primary" onClick={() => changeTheme(theme === 'light' ? 'dark' : 'light')} style={{marginLeft: '50px'}}>
                 {
