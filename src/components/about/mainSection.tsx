@@ -10,16 +10,17 @@ import ConnectSection from './connectSection';
 
 interface Props {
   skills: Skill[]
+  isAdmin: boolean
 }
 
-const MainSection: FC<Props> = ({ skills }) => {
+const MainSection: FC<Props> = ({ skills, isAdmin }) => {
   return (
     <Container sx={{ mb: 8 }}>
       <Grid container spacing={4}>
         {/* Left Column */}
         <Grid item xs={12} md={4}>
           <PersonalInfo />
-          <SkillsSection skills={skills} />
+          <SkillsSection skills={skills} isAdmin={isAdmin} />
           <InterestsSection />
         </Grid>
         {/* Right Column */}

@@ -7,13 +7,14 @@ import { Skill } from '@prisma/client';
 
 interface Props {
   skills: Skill[]
+  isAdmin: boolean
 }
 
-const AboutLayout: FC<Props> = ({skills}) => {
+const AboutLayout: FC<Props> = ({skills, isAdmin}) => {
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
       <Hero/>
-      <MainSection skills={skills}/>
+      <MainSection isAdmin={isAdmin} skills={skills}/>
     </Box>
   );
 };
