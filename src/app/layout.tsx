@@ -29,6 +29,7 @@ const RootLayout = async ({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>          
         <ThemeProvider >
