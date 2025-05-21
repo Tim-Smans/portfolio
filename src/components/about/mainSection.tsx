@@ -7,6 +7,7 @@ import InterestsSection from './interestsSection';
 import AboutMeSection from './aboutMeSection';
 import ExperienceSection from './experienceSection';
 import ConnectSection from './connectSection';
+import ReferenceSection from './referenceSection';
 
 interface Props {
   skills: Skill[]
@@ -29,6 +30,7 @@ const MainSection: FC<Props> = ({ skills, isAdmin }) => {
           <ExperienceSection/>
         </Grid>
       </Grid>
+      <ReferenceSection/>
       <ConnectSection/>
     </Container>
   )
