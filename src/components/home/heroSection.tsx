@@ -21,8 +21,7 @@ const HeroSection: FC = () => {
             Student Developer
           </Typography>
           <Typography variant="body1" color="text.secondary" paragraph>
-            I am a passionate student developer who is currently doing an internship in Finland
-          </Typography>
+          I am an enthusiastic student developer, having recently completed an enriching and challenging internship experience in Finland          </Typography>
           <Stack direction="row" spacing={2}>
             <Link href={'/projects'}>
               <Button variant="contained" size="large">
