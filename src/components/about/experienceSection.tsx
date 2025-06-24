@@ -36,7 +36,7 @@ const ExperienceSection: FC = () => {
           <Typography variant="h6" component="span">
             Internship AI Scalers
           </Typography>
-          <Typography variant="subtitle2" color="primary">
+          <Typography variant="subtitle1" color="primary">
             Metroplia University Of Applied Sciences Helsinki
           </Typography>
           <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
@@ -44,6 +44,9 @@ const ExperienceSection: FC = () => {
           </Typography>
           <Typography>
             14 Week international internship at Metropolia University in Finland. I learned about the fundamentals of Artificial Intelligence and Machine Learning. Working for their project called 'AI Scalers'
+          </Typography>
+          <Typography variant="subtitle2" color="secondary">
+            Grade: 18/20
           </Typography>
         </TimelineContent>
       </TimelineItem>
@@ -66,10 +69,13 @@ const ExperienceSection: FC = () => {
             Thomas More University Of Applied Sciences
           </Typography>
           <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
-          2023 - Present
+          2023 - June 2025
           </Typography>
           <Typography>
             A two-year practice-oriented program that equiped me with essential programming skills in C#, JavaScript, object-oriented programming, and mobile development.
+          </Typography>
+          <Typography variant="subtitle2" color="secondary">
+            Passed Summa cum laude with congratulations of the Board of Examiners.
           </Typography>
         </TimelineContent>
       </TimelineItem>
