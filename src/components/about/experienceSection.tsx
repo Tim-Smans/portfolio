@@ -7,9 +7,10 @@ import TimelineDot from "@mui/lab/TimelineDot"
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent"
 import { Divider, Paper, Typography } from '@mui/material'
 import { FC } from 'react'
-import { School, Work, AirplanemodeActive} from '@mui/icons-material'
+import { School, Work, AirplanemodeActive, LocalHospital} from '@mui/icons-material'
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { BrickWall, Hospital } from "lucide-react"
 
 const ExperienceSection: FC = () => {
   const theme = useTheme();
@@ -22,6 +23,34 @@ const ExperienceSection: FC = () => {
     </Typography>
     <Divider sx={{ mb: 2 }} />
     <Timeline position={isMobile ? "right" : "alternate"}>      
+      <TimelineItem>
+        <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
+          September 2025 - ...
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot color="primary">
+            <Hospital />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>
+          <Typography variant="h6" component="span">
+            Cloud Software Developer
+          </Typography>
+          <Typography variant="subtitle1" color="primary">
+            ChipSoft Belgium
+          </Typography>
+          <Typography variant="body2" sx={{ display: { xs: "block", md: "none" }, color: "text.secondary" }}>
+            September 2025 - ...
+          </Typography>
+          <Typography>
+            Working as a Cloud Software Developer at ChipSoft Belgium, contributing to the development of scalable cloud solutions that support healthcare IT. In this role I focus on designing, implementing, and maintaining secure and efficient cloud-based applications that improve data accessibility and interoperability within the healthcare sector.
+          </Typography>
+          <Typography variant="subtitle2" color="secondary">
+            Rest API, Microservices, EF Core, Azure Services, MediatR
+          </Typography>
+        </TimelineContent>
+      </TimelineItem>
       <TimelineItem>
         <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
           February 2025 - June 2025
@@ -53,7 +82,7 @@ const ExperienceSection: FC = () => {
 
       <TimelineItem>
         <TimelineOppositeContent color="text.secondary" sx={{ display: { xs: "none", md: "block" } }}>
-          2023 - Present
+          2023 - 2025
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot color="secondary">
@@ -86,7 +115,7 @@ const ExperienceSection: FC = () => {
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot color="primary">
-            <Work />
+            <BrickWall />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>

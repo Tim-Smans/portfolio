@@ -22,66 +22,68 @@ const Hero: FC = () => {
 
 
   return (
-     <Box
-     sx={{
-       bgcolor: color,
-       py: 8,
-       mb: 6,
-     }}
-   >
-     <Container>
-       <Grid container spacing={4} alignItems="center">
-         <Grid item xs={12} md={4} sx={{ textAlign: { xs: "center", md: "right" } }}>
-           <Avatar
-             src="profile.png"
-             alt="Tim Smans Profile Picture"
-             sx={{
-               width: { xs: 200, md: 250 },
-               height: { xs: 200, md: 250 },
-               mx: { xs: "auto", md: 0 },
-               boxShadow: 6,
-               border: "4px solid white",
-             }}
-           />
-         </Grid>
-         <Grid item xs={12} md={8}>
-           <Typography variant="h2" component="h1" gutterBottom>
-             Tim Smans
-           </Typography>
-           <Typography variant="h5" gutterBottom color="primary.main">
-             Student  Developer | Backend & AI Engineer
-           </Typography>
-           <Typography variant="body1" paragraph sx={{ maxWidth: 600 }}>
-           Mainly focusing on <i>Software Development</i> and <i>Artificial Intelligence</i>, I specialize in building scalable applications and AI-driven solutions.
-           I have experience with <b>backend development</b>, <b>cloud infrastructure</b> and <b>automation</b>, I focus on creating efficient and reliable systems.
-             <br/>
-             During my internship in Finland, I worked on developing AI models, machine learning workflows, and scalable backend architectures. Skilled in JavaScript, C#, Python and cloud-native technologies, I love creating meaningful solutions. 
-           </Typography>
-           <Box
-             sx={{
-               mt: 3,
-               display: "flex",
-               gap: 2,
-               flexWrap: "wrap",
-               justifyContent: { xs: "center", md: "flex-start" },
-             }}
-           >
-             <Button variant="contained" color="secondary" startIcon={<Download />}>
-             <a style={{ textDecoration: "none", color: "inherit" }} href='/Global_resume_Tim_Smans.pdf' target='_blank'>
-              Download Resume
-             </a>
-             </Button>
-             <Link href={"/contact"}>
-              <Button variant="outlined" sx={{ color: "gray", borderColor: "gray" }}>
-                Contact Me
+    <Box
+      sx={{
+        bgcolor: color,
+        py: 8,
+        mb: 6,
+      }}
+    >
+      <Container>
+        <Grid container spacing={4} alignItems="center">
+          <Grid item xs={12} md={4} sx={{ textAlign: { xs: "center", md: "right" } }}>
+            <Avatar
+              src="profile.png"
+              alt="Tim Smans Profile Picture"
+              sx={{
+                width: { xs: 200, md: 250 },
+                height: { xs: 200, md: 250 },
+                mx: { xs: "auto", md: 0 },
+                boxShadow: 6,
+                border: "4px solid white",
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Typography variant="h2" component="h1" gutterBottom>
+              Tim Smans
+            </Typography>
+            <Typography variant="h5" gutterBottom color="primary.main">
+              Cloud Software Developer | AI Engineer
+            </Typography>
+            <Typography variant="body1" paragraph sx={{ maxWidth: 600 }}>
+              Mainly focusing on <i>Software Development</i> and <i>Artificial Intelligence</i>, I specialize in building scalable applications and AI-driven solutions.
+              I have experience with <b>backend development</b>, <b>cloud infrastructure</b> and <b>automation</b>, I focus on creating efficient and reliable systems.
+              <br /><br />
+              During my internship in Finland, I worked on developing AI models, machine learning workflows, and scalable backend architectures. Skilled in JavaScript, C#, Python and cloud-native technologies, I love creating meaningful solutions.
+              <br /><br />
+              Currently I am working at ChipSoft Belgium as a Cloud Software Developer, focusing on building secure and scalable cloud-based healthcare solutions.
+            </Typography>
+            <Box
+              sx={{
+                mt: 3,
+                display: "flex",
+                gap: 2,
+                flexWrap: "wrap",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Button variant="contained" color="secondary" startIcon={<Download />}>
+                <a style={{ textDecoration: "none", color: "inherit" }} href='/Global_resume_Tim_Smans.pdf' target='_blank'>
+                  Download Resume
+                </a>
               </Button>
-             </Link>
-           </Box>
-         </Grid>
-       </Grid>
-     </Container>
-   </Box>
-    )
+              <Link href={"/contact"}>
+                <Button variant="outlined" sx={{ color: "gray", borderColor: "gray" }}>
+                  Contact Me
+                </Button>
+              </Link>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  )
 }
 
 export default Hero
