@@ -18,10 +18,10 @@ const HeroSection: FC = () => {
             Hi, I&apos;m <Box component="span" color="primary.main">Tim Smans</Box>
           </Typography>
           <Typography variant="h4" gutterBottom color="text.secondary">
-            Student Developer
+            Cloud Software Developer
           </Typography>
           <Typography variant="body1" color="text.secondary" paragraph>
-          I am an enthusiastic student developer, having recently completed an enriching and challenging internship experience in Finland          </Typography>
+          I am an enthusiastic junior developer, having recently completed an enriching and challenging internship experience in Finland, and finishing my studies Summa cum laude.          </Typography>
           <Stack direction="row" spacing={2}>
             <Link href={'/projects'}>
               <Button variant="contained" size="large">

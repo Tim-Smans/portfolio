@@ -98,7 +98,7 @@ export default function Footer() {
                 Tim Smans
               </Typography>
               <Typography variant="subtitle1" sx={{ mb: 2 }}>
-              Student Developer | Backend & AI Engineer
+              Cloud Software Developer
               </Typography>
 
             </Box>
